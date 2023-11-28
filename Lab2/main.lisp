@@ -1,0 +1,5 @@
+(defun редукция2(g a x)
+    (cond ((= (list-length x) 0) nil)
+        ((= (list-length x) 1) (funcall g a (first x)))
+        (t (редукция2 g (funcall g a (first x)) (rest x))))
+)

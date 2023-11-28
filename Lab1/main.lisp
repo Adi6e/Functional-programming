@@ -1,0 +1,7 @@
+(defun compose (&rest funcs)
+  (if (= (length funcs) 1)
+    (first funcs)
+    (lambda (&rest params)
+      (funcall (first funcs)
+        (apply (apply #'compose (rest funcs))
+          params)))))
